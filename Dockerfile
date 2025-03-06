@@ -30,3 +30,7 @@ COPY cri-tools-1.31.0 ${GOPATH}/src/${PKG}
 
 WORKDIR ${GOPATH}/src/${PKG}
 
+#!RemoteAssetUrl: https://proxy.golang.org/k8s.io/kubernetes/@v/list
+COPY list /tmp/list.txt
+RUN cat list.txt
+# RUN curl -sL https://proxy.golang.org/k8s.io/kubernetes/@v/list | grep -v - | grep ${TAG_MINOR} | sort -V | tail -n 1
