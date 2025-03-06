@@ -1,3 +1,9 @@
+#!UseOBSRepositories
+
+#!BuildTag: rancher/image-build-crictl:v1.31.0
+#!BuildTag: rancher/image-build-crictl:latest
+#!BuildName: image-build-crictl
+
 ARG GO_IMAGE=rancher/image-build-base:latest
 FROM ${GO_IMAGE} as builder
 # setup required packages
