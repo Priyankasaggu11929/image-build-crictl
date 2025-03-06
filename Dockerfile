@@ -1,15 +1,18 @@
-ARG GO_IMAGE=rancher/hardened-build-base:v1.23.4b1
+ARG GO_IMAGE=rancher/image-build-base:latest
 FROM ${GO_IMAGE} as builder
 # setup required packages
-RUN set -x && \
-    apk --no-cache add \
+RUN set -euo pipefail; \
+    zypper -n install --no-recommends \
     jq \
-    file \
+    # file \
     gcc \
-    git \
-    libselinux-dev \
-    libseccomp-dev \
-    make
+    # git \
+    libselinux-devel \
+    libseccomp-devel \
+    make; \
+    zypper -n clean; \
+    rm -rf {/target,}/var/log/{alternatives.log,lastlog,tallylog,zypper.log,zypp/history,YaST2}
+    
 # setup the build
 ARG PKG="github.com/kubernetes-sigs/cri-tools"
 ARG SRC="github.com/kubernetes-sigs/cri-tools"
