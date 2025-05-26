@@ -14,7 +14,7 @@
  
  <service name="go_modules">
     <param name="archive">*cri-tools.obscpio</param>
-    <param name="replace">github.com/docker/docker=github.com/docker/docker@v27.1.1+incompatible/param>
+    <param name="replace">github.com/docker/docker=github.com/docker/docker@v27.1.1+incompatible</param>
     <param name="replace">k8s.io/kubernetes=k8s.io/kubernetes@v1.31.9</param>
  </service>
 
