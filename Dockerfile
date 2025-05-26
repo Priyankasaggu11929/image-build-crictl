@@ -26,9 +26,11 @@ ARG TAG="v1.31.0"
 ARG ARCH="amd64"
 
 RUN mkdir -p ${GOPATH}/src/${PKG}
-COPY cri-tools-1.31.0 ${GOPATH}/src/${PKG}
+COPY cri-tools ${GOPATH}/src/${PKG}
 
 WORKDIR ${GOPATH}/src/${PKG}
+
+RUN ls && cat go.mod
 
 #!RemoteAssetUrl: https://proxy.golang.org/k8s.io/kubernetes/@v/list
 COPY list /tmp/list
