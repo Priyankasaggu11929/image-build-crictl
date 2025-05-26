@@ -10,7 +10,7 @@
     <param name="without-version">yes</param>
   </service>
  
- <service name="download_assets" /> </service>
+ <service name="download_assets" />
  
  <service name="go_modules">
     <param name="archive">*cri-tools.obscpio</param>
