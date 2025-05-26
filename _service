@@ -6,6 +6,13 @@
     <param name="versionformat">@PARENT_TAG@</param>
     <param name="versionrewrite-pattern">v(.*)</param>
     <param name="revision">v1.31.0</param>
+    <param name="without-version">yes</param>
   </service>
  <service name="download_assets" />
+ </service>
+ <service name="go_modules">
+    <param name="archive">*cri-tools.obscpio</param>
+    <param name="replace">github.com/docker/docker=github.com/docker/docker@v27.1.1+incompatible/param>
+    <param name="replace">k8s.io/kubernetes=k8s.io/kubernetes@v1.31.9</param>
+ </service>
 </services>
