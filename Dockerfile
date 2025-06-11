@@ -30,12 +30,8 @@ COPY cri-tools ${GOPATH}/src/${PKG}
 
 WORKDIR ${GOPATH}/src/${PKG}
 
-RUN ls && cat go.mod
-
 #!RemoteAssetUrl: https://proxy.golang.org/k8s.io/kubernetes/@v/list
 COPY list /tmp/list
-RUN cat /tmp/list
-RUN cat /tmp/list | grep -v - | grep ${TAG_MINOR} | sort -V | tail -n 1
 
 RUN set -x; \
     TAG_MINOR=$(echo ${TAG} | awk -F. '{printf "%s.%s.\n", $1, $2}'); \
@@ -48,6 +44,7 @@ RUN set -x; \
     for MODULE in $(go mod edit --json | jq -r '.Require[] | select(.Path | test("^k8s.io/")) | select(.Path | test("^k8s.io/(kubernetes|klog|utils|kube-openapi)") | not) | .Path'); do go mod edit --require ${MODULE}@${K8S_VERSION_MOD}; done;
     # go mod tidy && go mod vendor
 
+ADD vendor.tar.gz ${GOPATH}/src/${PKG}
 
 RUN GO_LDFLAGS="-linkmode=external -X $(awk '/^module /{print $2}' go.mod)/pkg/version.Version=${TAG}" \
     go-build-static.sh -gcflags=-trimpath=${GOPATH}/src -o bin/crictl ./cmd/crictl
