@@ -42,6 +42,7 @@ RUN set -x; \
 
 ADD vendor.tar.gz ${GOPATH}/src/${PKG}
 
+# IMPORTANT NOTE: If go build fails asking to do `go mod vendor` again, please cross check and refresh replace/require entries in the _service file
 RUN GO_LDFLAGS="-linkmode=external -X $(awk '/^module /{print $2}' go.mod)/pkg/version.Version=${TAG}" \
     go-build-static.sh -gcflags=-trimpath=${GOPATH}/src -o bin/crictl ./cmd/crictl
 RUN go-assert-static.sh bin/*
