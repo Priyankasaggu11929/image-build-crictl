@@ -16,15 +16,15 @@
     <param name="archive">*cri-tools.obscpio</param>
     <param name="replace">github.com/docker/docker=github.com/docker/docker@v27.1.1+incompatible</param>
     <param name="replace">k8s.io/kubernetes=k8s.io/kubernetes@v1.31.9</param>
-    <param name="require">k8s.io/api@v0.31.0</param>
-    <param name="require">k8s.io/apimachinery@v0.31.0</param>
-    <param name="require">k8s.io/client-go@v0.31.0</param>
-    <param name="require">k8s.io/cri-api@v0.31.0</param>
-    <param name="require">k8s.io/cri-client@v0.31.0</param>
-    <param name="require">k8s.io/kubectl@v0.31.0</param>
-    <param name="require">k8s.io/kubelet@v0.31.0</param>
-    <param name="require">k8s.io/cli-runtime@v0.31.0</param>
-    <param name="require">k8s.io/component-base@v0.31.0</param>
+    <param name="require">k8s.io/api@v0.31.9</param>
+    <param name="require">k8s.io/apimachinery@v0.31.9</param>
+    <param name="require">k8s.io/client-go@v0.31.9</param>
+    <param name="require">k8s.io/cri-api@v0.31.9</param>
+    <param name="require">k8s.io/cri-client@v0.31.9</param>
+    <param name="require">k8s.io/kubectl@v0.31.9</param>
+    <param name="require">k8s.io/kubelet@v0.31.9</param>
+    <param name="require">k8s.io/cli-runtime@v0.31.9</param>
+    <param name="require">k8s.io/component-base@v0.31.9</param>
  </service>
 
 </services>
